@@ -1,0 +1,12 @@
+> hooks: are spacial variable in react used to update the DOM. therefore, without a hook you can not update the DOM in react.
+
+> examples of hooks:
+  < useState
+  < useRef 
+  < useEffect
+> useState hook structure
+  let [count,setCount] = useState(0);
+    count = initial value which is 0
+    setCount = is a function that useState return to help update count        at anytime
+taskt: build a score board for a football match between Nigeria and Ghana.
+

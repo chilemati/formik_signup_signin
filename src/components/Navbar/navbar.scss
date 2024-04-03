@@ -1,0 +1,42 @@
+@import "../../scss/variables";
+@import "../../scss/includes";
+@import "../../scss/extends";
+@import "../../scss/responsive";
+
+#NavBar {
+  padding: 0.5rem 1rem;
+  @include mobile {
+    background-color: blue;
+  }
+  @include tablet {
+    background-color: purple;
+  }
+  @include desktop {
+    background-color: $nav_bg;
+  }
+  a {
+    color: $nav_color;
+    @extend .anchor;
+    &:hover {
+      color: green;
+    }
+  }
+  ul {
+    @include flex_dynamic(center);
+    gap: 1rem;
+    list-style-type: none;
+
+    li {
+      @include mobile {
+        // &:nth-child(2) {
+        //   display: none;
+        // }
+      }
+      @include desktop {
+        &:nth-child(2) {
+          display: flex;
+        }
+      }
+    }
+  }
+}
