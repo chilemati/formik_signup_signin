@@ -1,0 +1,16 @@
+{
+  "users": [
+     {
+      "name": "Amadi chile",
+      "role": "Admin",
+      "id": "amadichile003@gmail.com",
+      "password": "00000000Ac1$"
+    },
+     {
+      "name": "Lucky Ben",
+      "role": "normal",
+      "id": "luckyben@gmail.com",
+      "password": "00000000Ac1$"
+    }
+]
+}

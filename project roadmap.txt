@@ -1,0 +1,9 @@
+Create a blog website
+
+// website functionalities
+> only signned in admins or sub-admins can create, delete and update blog posts
+> if to access the blogs page, a user must be logged in
+> if user is not logged in, redirect user to login page
+>  add a spinner to encourage users to wait while fetching a page content
+> add a notification such as a spinner or pop ups to inform a user that a process is taking place, was successful, or unsuccessfull
+> before an admin or a sub-admin deletes a post, inform him of his action before executing

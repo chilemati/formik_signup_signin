@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import About from "../components/about/About";
-import Home from "../components/home/Home";
 import Signup from "../components/signup/Signup";
 import Signin from "../components/signin/Signin";
+import Blogs from "../components/home/Home";
+import Create from "../components/create/Create";
 
 let id = 1;
 export const NavRoutes = [
   {
     id: id++,
     path: "/",
-    element: <Home />,
+    element: <Blogs />,
   },
   {
     id: id++,
@@ -25,6 +26,11 @@ export const NavRoutes = [
     id: id++,
     path: "/signin",
     element: <Signin />,
+  },
+  {
+    id: id++,
+    path: "/create",
+    element: <Create />,
   },
   {
     id: id++,

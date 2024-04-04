@@ -1,27 +1,24 @@
-import React, { useCallback, useState } from "react";
-import UseState from "../useState/UseState";
+import React, { useEffect, useState } from "react";
+import Props from "../props/Props";
+import { useRecoilValue } from "recoil";
+import { userInfo } from "../atoms/user";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => {
-  let [a, setA] = useState(0);
-  let [b, setB] = useState(0);
-  console.count("home");
-  function handleA() {
-    setA((prev) => prev + 1);
-  }
-  function handleB() {
-    setB((prev) => prev + 1);
-  }
+const Blogs = () => {
+  let user = useRecoilValue(userInfo);
+  const redirect = useNavigate();
 
-  let memoA = useCallback(handleA, [a]);
+  useEffect(() => {
+    !user.isLoggedIn && redirect("/signin");
+  }, [user.isLoggedIn]);
   return (
     <div>
-      <h1>Home</h1>
-      <h3>A Clicks: {a} </h3>
-      <h3>B Clicks: {b} </h3>
-      <button onClick={() => handleB()}>++</button>
-      <UseState a={a} updateA={memoA} />
+      <h1>All Blogs</h1>
+      <Props />
+      <Props name={name} />
+      <Props name={"Precious"} country="Nigeria" />
     </div>
   );
 };
 
-export default Home;
+export default Blogs;

@@ -1,8 +1,14 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import { useRecoilState } from "recoil";
+import { userInfo } from "../atoms/user";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
+  let [user, setUser] = useRecoilState(userInfo);
+  const redirect = useNavigate();
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -23,7 +29,27 @@ const Signin = () => {
       email: Yup.string().email("Invalid email address").required("Required"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      /* 
+      step to login a user
+      > use the email to check if user exist on db
+      > if true, check if the password match
+      > if password match, login
+      > else, show wrong email or password
+     */
+      axios
+        .get(`http://localhost:8000/users/${values.email}`)
+        .then((resp) => {
+          // console.log(resp.data);
+          if (resp.data.password === values.password) {
+            setUser({ isLoggedIn: true, data: resp.data });
+            redirect("/");
+          } else {
+            alert("wrong email or password");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   });
   return (

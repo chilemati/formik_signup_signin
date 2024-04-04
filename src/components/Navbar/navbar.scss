@@ -23,7 +23,7 @@
   }
   ul {
     @include flex_dynamic(center);
-    gap: 1rem;
+    gap: 2rem;
     list-style-type: none;
 
     li {
